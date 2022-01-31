@@ -1,0 +1,65 @@
+
+savefile = open('save.txt', 'r+')
+temproom = 0
+room = 0
+answer = "a"
+print ("Welcome to Dreadsky! explore the map. Press esc to exit.")
+while answer != "esc":
+    if room ==0:
+        print("would you like to (l)oad or (s)tart from beginning")
+        answer = input()
+        if answer == "l":
+            print("loading from save")
+            room = int(savefile.readline())
+            savefile.close()
+        elif answer == "s":
+            print("sending to beginning")
+            room = 1
+            savefile.close()
+    elif room == 1:
+        savefile = open('save.txt', 'w')
+        temproom = 1
+        savefile.write(str(temproom))
+        savefile.close()
+        print ("you are in the Barracks, you can go e")
+        answer = input()
+        if answer == "e":
+            room = 2
+        elif answer == "P":
+            temproom = 1
+            room =0
+    elif room == 2:
+        savefile = open('save.txt', 'w')
+        temproom = 2
+        savefile.write(str(temproom))
+        savefile.close()
+        print ("you are in the Cafeteria , you can go w or s")
+        answer = input()
+        if answer == "w":
+            room = 1
+        elif answer == "s":
+            room = 3
+    elif room == 3:
+        savefile = open('save.txt', 'w')
+        temproom = 3
+        savefile.write(str(temproom))
+        savefile.close()
+        print ("you are in the Courtyard , you can go n or e")
+        answer = input()
+        if answer == "n":
+            room = 2
+        elif answer == "e":
+            room = 4
+    elif room == 4:
+        savefile = open('save.txt', 'w')
+        temproom = 4
+        savefile.write(str(temproom))
+        savefile.close()
+        print ("you are in the Cafeteria , you can go w or s or e")
+        answer = input()
+        if answer == "w":
+            room = 3
+        elif answer == "s":
+            room = 5
+        elif answer == "s":
+            room = 6
